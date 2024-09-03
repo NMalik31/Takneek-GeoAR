@@ -82,6 +82,7 @@ public class PowerUpText : MonoBehaviour
         if (reloadButton != null)
         {
             reloadButton.gameObject.SetActive(false);
+            countButton.gameObject.SetActive(true);
         }
     }
 

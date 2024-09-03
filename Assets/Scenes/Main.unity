@@ -139,6 +139,8 @@ GameObject:
   - component: {fileID: 40919621}
   - component: {fileID: 40919622}
   - component: {fileID: 40919623}
+  - component: {fileID: 40919625}
+  - component: {fileID: 40919624}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -408,6 +410,36 @@ MonoBehaviour:
   reloadButton: {fileID: 0}
   powerUpText: {fileID: 2086790933}
   reloadText: {fileID: 0}
+--- !u!114 &40919624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40919614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa17d122634046b4a8e23048891fafc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RaycastPrefab: {fileID: 6750105710887558625, guid: f66d1ec75fde42e4b84e82c22cd8c581, type: 3}
+--- !u!114 &40919625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40919614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0cb9aa70a22847b5925ee5f067c10a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Camera: {fileID: 0}
+  m_OriginBaseGameObject: {fileID: 40919614}
+  m_CameraFloorOffsetObject: {fileID: 0}
+  m_RequestedTrackingOriginMode: 0
+  m_CameraYOffset: 1.1176
 --- !u!1 &65284393
 GameObject:
   m_ObjectHideFlags: 0
@@ -696,7 +728,7 @@ RectTransform:
   m_GameObject: {fileID: 478242648}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 5.92}
-  m_LocalScale: {x: 0.012, y: 0.012, z: 0.015}
+  m_LocalScale: {x: 0.007, y: 0.007, z: 0.015}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2082981300}
@@ -704,7 +736,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.1979, y: 0.185}
+  m_AnchoredPosition: {x: 0.721, y: -0.42}
   m_SizeDelta: {x: 71.6878, y: 67.9892}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &478242650
@@ -2107,7 +2139,7 @@ RectTransform:
   m_GameObject: {fileID: 1411413742}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 7.366}
-  m_LocalScale: {x: 0.012, y: 0.012, z: 0.015}
+  m_LocalScale: {x: 0.007, y: 0.007, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 581826589}
@@ -2115,7 +2147,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.181, y: -0.89}
+  m_AnchoredPosition: {x: 1.091, y: -0.63}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1411413744
@@ -2265,7 +2297,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -205.2, y: 92.6}
+  m_AnchoredPosition: {x: 41.1, y: 92.6}
   m_SizeDelta: {x: 133.6666, y: 15.490799}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1693057267
@@ -2541,11 +2573,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400016, guid: 1dc2a27ad3a63d24bad7f1c6d159013e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 400016, guid: 1dc2a27ad3a63d24bad7f1c6d159013e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.3
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 400016, guid: 1dc2a27ad3a63d24bad7f1c6d159013e, type: 3}
       propertyPath: m_LocalScale.z
@@ -2553,7 +2585,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400016, guid: 1dc2a27ad3a63d24bad7f1c6d159013e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.077
+      value: 0.047
       objectReference: {fileID: 0}
     - target: {fileID: 400016, guid: 1dc2a27ad3a63d24bad7f1c6d159013e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2798,7 +2830,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -93, y: -100}
+  m_AnchoredPosition: {x: 159, y: -100}
   m_SizeDelta: {x: 413.7443, y: 49}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2086790933
@@ -2848,8 +2880,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 26
+  m_fontSizeBase: 26
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
