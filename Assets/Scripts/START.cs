@@ -6,6 +6,6 @@ public class START : MonoBehaviour
 {
     public void StartButton()
     {
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("NotInMissionScene");
     }
 }
