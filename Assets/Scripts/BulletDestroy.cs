@@ -9,7 +9,7 @@ public class BulletDestroy : MonoBehaviour
     void Update()
     {
         // Check if the bullet's z value is greater than the maxZValue
-        if (transform.position.z > maxZValue)
+        if (transform.position.z > maxZValue||transform.position.z < -15)
         {
             Destroy(gameObject);
         }

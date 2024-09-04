@@ -9,13 +9,17 @@ public class EnemyHealth : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        // Decrease health by collision damage
-        health -= collisionDamage;
-
-        // Check if health is 0 or below
-        if (health <= 0)
+        if(collision.gameObject.CompareTag("Bullet"))
         {
-            Destroy(gameObject);
+            // Decrease health by collision damage
+            health -= collisionDamage;
+
+            // Check if health is 0 or below
+            if (health <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
+        
     }
 }
