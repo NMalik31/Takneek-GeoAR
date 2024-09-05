@@ -53,12 +53,12 @@ Visual Enhancements: Improved textures, shaders, and visual effects to further i
 
 ## Main Menu Images
 ![Img1](Imaeges/Main.jpeg)
-![Img2]("Imaeges/Main2.jpeg")
-![Img3]('Imaeges/Main3.jpeg')
+![Img2](Imaeges/Main2.jpeg)
+![Img3](Imaeges/Main3.jpeg)
 
 ## GamePlay Images
-![Img1](Imaeges/Game.jpeg)
-![Img2]("Imaeges/Game2.jpeg")
+![Img1](Imaeges/game1.jpeg)
+![Img2](Imaeges/game2.jpeg)
 
 ## Contributions
 Game made by Aryans GeoMatrix Team!
