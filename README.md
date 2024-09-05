@@ -52,11 +52,13 @@ Multiplayer Integration: Explore the possibility of adding multiplayer features 
 Visual Enhancements: Improved textures, shaders, and visual effects to further immerse players in the AR environment.
 
 ## Main Menu Images
-![Img1](Imaeges/Main Menu.jpeg)
-![Img2](Imaeges/Main Menu 2.jpeg)
-![Img3](Imaeges/Main Menu 3.jpeg)
+![Img1](Imaeges\Main.jpeg)
+![Img2]("Imaeges\Main2.jpeg")
+![Img3]('Imaeges\Main3.jpeg')
 
 ## GamePlay Images
+![Img1](Imaeges\Game.jpeg)
+![Img2]("Imaeges\Game2.jpeg")
 
 ## Contributions
 Game made by Aryans GeoMatrix Team!
