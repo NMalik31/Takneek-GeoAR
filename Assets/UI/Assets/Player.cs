@@ -44,10 +44,11 @@ public class Player : MonoBehaviour
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    public int maxHealth = 100;
+    public int maxHealth = 1000;
     public int currentHealth;
 
     public HealthBar healthBar;
@@ -82,9 +83,13 @@ public class Player : MonoBehaviour
         if (spawn)
         {
             // Use a lambda function to call TakeDamage with the enemyCount parameter
-            Invoke(() => TakeDamage(enemyCount), 1f); // Delay of 1 second for example
+            Invoke(() => TakeDamage(enemyCount ), 1f); // Delay of 1 second for example
             spawn = false; // Set spawn to false to avoid repeated calls
         }
+		if (currentHealth == 0)
+		{
+			SceneManager.LoadScene("GameEnd");
+		}
     }
 
     // Method to reduce player health based on damage
@@ -106,4 +111,5 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(delay);
         action();
     }
+
 }

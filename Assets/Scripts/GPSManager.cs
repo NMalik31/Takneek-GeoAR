@@ -544,6 +544,178 @@
 //     }
 // }
 
+// using System.Collections;
+// using UnityEngine;
+// using UnityEngine.SceneManagement;
+// using TMPro;
+
+// public class GPSManager : MonoBehaviour
+// {
+//     [SerializeField] float mission1Latitude = 26.5048703f; // Coordinates for mission 1
+//     public float mission1Longitude = 80.2303557f;
+//     public float mission2Latitude = 26.5105555f; // Coordinates for mission 2
+//     public float mission2Longitude = 80.2294444f;
+//     public float startMissionDistance = 50f; // Distance to start the mission in meters
+
+//     public TextMeshProUGUI directionText; // UI Text to show direction and distance to mission
+//     public GameObject selectionCanvas; // Canvas for selecting mission location
+//     public GameObject distanceCanvas; // Canvas for showing distance and direction
+
+//     private bool missionStarted = false;
+//     private float selectedMissionLatitude;
+//     private float selectedMissionLongitude;
+
+//     void Start()
+//     {
+//         // Initially show the selection canvas and hide the distance canvas
+//         selectionCanvas.SetActive(true);
+//         distanceCanvas.SetActive(false);
+
+//         // Start the location permission request and location service
+//         StartCoroutine(RequestLocationPermissionAndStartService());
+//     }
+
+//     IEnumerator RequestLocationPermissionAndStartService()
+//     {
+// #if UNITY_ANDROID
+//         // Check if the permission has been granted
+//         if (!UnityEngine.Android.Permission.HasUserAuthorizedPermission(UnityEngine.Android.Permission.FineLocation))
+//         {
+//             // Request the permission
+//             UnityEngine.Android.Permission.RequestUserPermission(UnityEngine.Android.Permission.FineLocation);
+
+//             // Wait until the user responds to the permission request
+//             while (!UnityEngine.Android.Permission.HasUserAuthorizedPermission(UnityEngine.Android.Permission.FineLocation))
+//             {
+//                 yield return null;
+//             }
+//         }
+// #endif
+
+//         // Check if location services are enabled by the user
+//         if (!Input.location.isEnabledByUser)
+//         {
+//             directionText.text = "Location services are disabled. Please enable them in settings.";
+//             yield break;
+//         }
+
+//         // Start the location service
+//         Input.location.Start();
+
+//         // Wait until the service initializes
+//         int maxWait = 20;
+//         while (Input.location.status == LocationServiceStatus.Initializing && maxWait > 0)
+//         {
+//             yield return new WaitForSeconds(1);
+//             maxWait--;
+//         }
+
+//         // If the service failed to start
+//         if (Input.location.status == LocationServiceStatus.Failed)
+//         {
+//             directionText.text = "Unable to determine device location.";
+//             yield break;
+//         }
+
+//         // Successfully started
+//         //directionText.text = "Location service started.";
+//     }
+
+//     void Update()
+//     {
+//         if (Input.location.status == LocationServiceStatus.Running)
+//         {
+//             float playerLatitude = (float)Input.location.lastData.latitude;
+//             float playerLongitude = (float)Input.location.lastData.longitude;
+
+//             float distance = CalculateDistance(playerLatitude, playerLongitude, selectedMissionLatitude, selectedMissionLongitude);
+
+//             if (distance <= startMissionDistance)
+//             {
+//                 if (!missionStarted)
+//                 {
+//                     StartMission();
+//                 }
+//                 else if (missionStarted && distance > startMissionDistance)
+//                 {
+//                     directionText.text = "You are leaving the mission area. Please go back.";
+//                 }
+//             }
+//             else
+//             {
+//                 ShowDirection(playerLatitude, playerLongitude, selectedMissionLatitude, selectedMissionLongitude, distance);
+//             }
+//         }
+//         else
+//         {
+//             directionText.text = "Location service is not running.";
+//         }
+//     }
+
+//     float CalculateDistance(float lat1, float lon1, float lat2, float lon2)
+//     {
+//         float earthRadius = 6371000f; // meters
+//         float dLat = (lat2 - lat1) * Mathf.Deg2Rad;
+//         float dLon = (lon2 - lon1) * Mathf.Deg2Rad;
+
+//         float a = Mathf.Sin(dLat / 2) * Mathf.Sin(dLat / 2) +
+//                    Mathf.Cos(lat1 * Mathf.Deg2Rad) * Mathf.Cos(lat2 * Mathf.Deg2Rad) *
+//                    Mathf.Sin(dLon / 2) * Mathf.Sin(dLon / 2);
+
+//         float c = 2 * Mathf.Atan2(Mathf.Sqrt(a), Mathf.Sqrt(1 - a));
+//         float distance = earthRadius * c;
+
+//         return distance;
+//     }
+
+//     void ShowDirection(float playerLat, float playerLon, float missionLat, float missionLon, float distance)
+//     {
+//         Vector2 playerPosition = new Vector2(playerLat, playerLon);
+//         Vector2 missionPosition = new Vector2(missionLat, missionLon);
+//         Vector2 direction = (missionPosition - playerPosition).normalized;
+
+//         directionText.text = $"Go {GetDirection(direction)}.\nDistance: {distance:F2} meters. {playerPosition}, {missionPosition}";
+        
+//     }
+
+//     string GetDirection(Vector2 direction)
+//     {
+//         if (direction.x > 0.5f) return "East";
+//         else if (direction.x < -0.5f) return "West";
+//         else if (direction.y > 0.5f) return "North";
+//         else if (direction.y < -0.5f) return "South";
+//         else return "Straight";
+//     }
+
+//     void StartMission()
+//     {
+//         missionStarted = true;
+//         SceneManager.LoadScene("MissionScene");
+//     }
+
+//     // Called when Mission 1 button is clicked
+//     public void SelectMission1()
+//     {
+//         selectedMissionLatitude = mission1Latitude;
+//         selectedMissionLongitude = mission1Longitude;
+//         ActivateDistanceCanvas();
+//     }
+
+//     // Called when Mission 2 button is clicked
+//     public void SelectMission2()
+//     {
+//         selectedMissionLatitude = mission2Latitude;
+//         selectedMissionLongitude = mission2Longitude;
+//         ActivateDistanceCanvas();
+//     }
+
+//     void ActivateDistanceCanvas()
+//     {
+//         selectionCanvas.SetActive(false);
+//         distanceCanvas.SetActive(true);
+//     }
+// }
+
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -551,19 +723,21 @@ using TMPro;
 
 public class GPSManager : MonoBehaviour
 {
-    public float mission1Latitude = 37.7749f; // Coordinates for mission 1
-    public float mission1Longitude = -122.4194f;
-    public float mission2Latitude = 34.0522f; // Coordinates for mission 2
-    public float mission2Longitude = -118.2437f;
-    public float startMissionDistance = 30f; // Distance to start the mission in meters
+    public float mission1Latitude = 26.5048703f; // Coordinates for mission 1
+    public float mission1Longitude = 80.2303557f;
+    public float mission2Latitude = 26.5105555f; // Coordinates for mission 2
+    public float mission2Longitude = 80.2294444f;
+    public float startMissionDistance = 50f; // Distance to start the mission in meters
 
     public TextMeshProUGUI directionText; // UI Text to show direction and distance to mission
+    public TextMeshProUGUI locationText; //UI Text to show player's location
     public GameObject selectionCanvas; // Canvas for selecting mission location
     public GameObject distanceCanvas; // Canvas for showing distance and direction
 
     private bool missionStarted = false;
-    private float selectedMissionLatitude;
-    private float selectedMissionLongitude;
+    public float selectedMissionLatitude;
+    public float selectedMissionLongitude;
+    // public Coord_mission coord; coord.lat;
 
     void Start()
     {
@@ -616,9 +790,6 @@ public class GPSManager : MonoBehaviour
             directionText.text = "Unable to determine device location.";
             yield break;
         }
-
-        // Successfully started
-        //directionText.text = "Location service started.";
     }
 
     void Update()
@@ -627,6 +798,9 @@ public class GPSManager : MonoBehaviour
         {
             float playerLatitude = (float)Input.location.lastData.latitude;
             float playerLongitude = (float)Input.location.lastData.longitude;
+
+            // Check if the mission coordinates are set correctly
+            Debug.Log($"Selected Mission Coordinates: Latitude = {selectedMissionLatitude}, Longitude = {selectedMissionLongitude}");
 
             float distance = CalculateDistance(playerLatitude, playerLongitude, selectedMissionLatitude, selectedMissionLongitude);
 
@@ -674,7 +848,9 @@ public class GPSManager : MonoBehaviour
         Vector2 missionPosition = new Vector2(missionLat, missionLon);
         Vector2 direction = (missionPosition - playerPosition).normalized;
 
+        // Display the direction and positions
         directionText.text = $"Go {GetDirection(direction)}.\nDistance: {distance:F2} meters.";
+        locationText.text = $"Your location : {playerPosition}";
     }
 
     string GetDirection(Vector2 direction)
@@ -697,6 +873,7 @@ public class GPSManager : MonoBehaviour
     {
         selectedMissionLatitude = mission1Latitude;
         selectedMissionLongitude = mission1Longitude;
+        Debug.Log("Mission 1 selected.");
         ActivateDistanceCanvas();
     }
 
@@ -705,6 +882,7 @@ public class GPSManager : MonoBehaviour
     {
         selectedMissionLatitude = mission2Latitude;
         selectedMissionLongitude = mission2Longitude;
+        Debug.Log("Mission 2 selected.");
         ActivateDistanceCanvas();
     }
 
@@ -714,4 +892,3 @@ public class GPSManager : MonoBehaviour
         distanceCanvas.SetActive(true);
     }
 }
-
