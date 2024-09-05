@@ -4,18 +4,30 @@ The AR Shooter Game aims to bring an immersive Augmented Reality (AR) experience
 
 ## Features
 Geospatial Integration: The game uses real-world GPS coordinates to determine player proximity to mission locations, guiding players with directional prompts based on their current location.
+
 Mission-Based Gameplay: Players can select from multiple mission locations, each with unique coordinates and objectives. When close to a mission location, a specific mission scene will load, creating a dynamic narrative.
+
 Shooting Mechanics: Players can engage with enemies using AR shooting mechanics. The game includes realistic gunshot sounds and shooting effects, enhancing the immersive experience.
+
 Enemy Spawning: Enemies appear in AR space, moving and attacking the player. The game implements enemy behavior such as patrolling, attacking, and spawning in specific areas, adding challenge and excitement.
+
 Proximity Alerts: The game monitors the player’s location relative to mission areas. If a player moves too far from the mission location, a warning prompts them to return, maintaining gameplay within the designated area.
+
 Audio Experience: Background music and sound effects enhance the atmosphere, from the start menu to in-game actions, providing an engaging and immersive audio experience.
+
 Alien-Themed Enemies: Enemies have an alien texture, distinguishing them visually and thematically, and adding a unique element to the gameplay.
 Game Flow
+
 Start Menu: The game begins with a start menu where players can select their mission.
+
 Mission Selection: Players choose between different mission locations via a canvas with interactive buttons.
+
 Proximity Detection: Upon selecting a mission, the game displays the player's distance and direction to the chosen mission location.
+
 Mission Activation: When within the mission range, a mission-specific scene starts, populated with enemies and interactive gameplay.
+
 Gameplay: Players engage with enemies using shooting mechanics. If players stray too far from the mission, a warning is triggered.
+
 Completion: Players complete objectives within mission areas, progressing the game narrative.
 
 ## Technologies Used
