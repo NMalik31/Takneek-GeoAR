@@ -1,4 +1,7 @@
 # Invasion AR
+## Design Document
+https://acrobat.adobe.com/id/urn:aaid:sc:AP:7857d3a4-e0c0-4c7c-a906-2feaf5c762a8
+
 ## Vision
 The AR Shooter Game aims to bring an immersive Augmented Reality (AR) experience to mobile devices using Unity, ARCore, and Cesium. The game combines real-world location data with engaging shooting mechanics, creating a dynamic environment where players interact with virtual enemies in real-world locations. The main objective is to blend the digital and physical worlds, making the player's surroundings an integral part of the gameplay.
 
